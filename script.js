@@ -50,4 +50,5 @@ details[3].textContent = account.days;
 details[4].textContent = account.fee;
 
 localStorage.setItem("selectedAccount", JSON.stringify(account));
-    
+   });
+});   
