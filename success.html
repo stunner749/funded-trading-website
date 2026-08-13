@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">YOURBRAND</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#accounts">Accounts</a>
+    <a href="index.html#how-it-works">How It Works</a>
+  </nav>
+</header>
+
+<section class="checkout-section">
+
+  <div class="checkout-card">
+
+    <p class="section-label">ORDER COMPLETE</p>
+
+    <h1>PAYMENT SUCCESSFUL</h1>
+
+    <div class="checkout-row">
+      <span>Challenge</span>
+      <strong id="success-size">$25,000 Account</strong>
+    </div>
+
+    <div class="checkout-total">
+      <span>Amount Paid</span>
+      <strong id="success-price">$149</strong>
+    </div>
+
+    <button class="primary-btn" onclick="window.location.href='index.html'">
+      Return Home
+    </button>
+
+  </div>
+
+</section>
+
+<script>
+  const selectedAccount = JSON.parse(localStorage.getItem("selectedAccount"));
+
+  if (selectedAccount) {
+    document.getElementById("success-size").textContent =
+      selectedAccount.size + " Account";
+
+    document.getElementById("success-price").textContent =
+      selectedAccount.fee;
+  }
+</script>
+
+</body>
+</html>
