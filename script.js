@@ -43,11 +43,11 @@ buttons.forEach(button => {
   button.addEventListener("click", () => {
     const key = button.textContent.replace("$", "");
     const account = accounts[key];
+details[0].textContent = account.size;
+details[1].textContent = account.target;
+details[2].textContent = account.loss;
+details[3].textContent = account.days;
+details[4].textContent = account.fee;
 
-    details[0].textContent = account.size;
-    details[1].textContent = account.target;
-    details[2].textContent = account.loss;
-    details[3].textContent = account.days;
-    details[4].textContent = account.fee;
-  });
-});
+localStorage.setItem("selectedAccount", JSON.stringify(account));
+    
