@@ -60,5 +60,12 @@
 
   </section>
 
+<script>  const selectedAccount = JSON.parse(localStorage.getItem("selectedAccount"));
+
+  if (selectedAccount) {
+    document.getElementById("checkout-size").textContent = selectedAccount.size;
+    document.getElementById("checkout-price").textContent = selectedAccount.fee;
+  }
+</script>
 </body>
 </html>
