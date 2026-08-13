@@ -287,4 +287,61 @@ nav a {
 .signup-card .primary-btn {
   margin-top: 18px;
   width: 100%;
+}.checkout-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(194, 255, 61, 0.08), transparent 35%),
+    #070b12;
 }
+
+.checkout-card {
+  width: 100%;
+  max-width: 560px;
+  background: #0d141e;
+  border: 1px solid #26303d;
+  border-radius: 18px;
+  padding: 40px;
+}
+
+.checkout-card h1 {
+  font-size: 38px;
+  margin-bottom: 30px;
+}
+
+.checkout-row,
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #26303d;
+}
+
+.checkout-row span,
+.checkout-total span {
+  color: #8d98a7;
+}
+
+.checkout-row strong {
+  font-size: 18px;
+}
+
+.checkout-total {
+  margin-top: 10px;
+  border-bottom: none;
+}
+
+.checkout-total strong {
+  color: #c8ff3d;
+  font-size: 28px;
+}
+
+.checkout-card .primary-btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  font-size: 16px;
