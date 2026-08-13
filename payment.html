@@ -29,20 +29,33 @@
 
     <div class="checkout-row">
       <span>Challenge</span>
-      <strong>$25,000 Account</strong>
-    </div>
+     <strong id="payment-size">$25,000 Account</strong>
 
     <div class="checkout-total">
       <span>Total</span>
-      <strong>$149</strong>
-    </div>
+   <strong id="payment-price">$149</strong> 
 
-    <button class="primary-btn" onclick="window.location.href='success.html'">
-    </button>
+   <button id="payment-button" class="primary-btn" onclick="window.location.href='success.html'">
+  Pay $149
+</button>  
+
 
   </div>
 
 </section>
+<script>
+  const selectedAccount = JSON.parse(localStorage.getItem("selectedAccount"));
 
+  if (selectedAccount) {
+    document.getElementById("payment-size").textContent =
+      selectedAccount.size + " Account";
+
+    document.getElementById("payment-price").textContent =
+      selectedAccount.fee;
+
+    document.getElementById("payment-button").textContent =
+      "Pay " + selectedAccount.fee;
+  }
+</script>
 </body>
 </html>
