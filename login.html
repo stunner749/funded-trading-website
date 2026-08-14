@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">YOURBRAND</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#accounts">Accounts</a>
+    <a href="index.html#how-it-works">How It Works</a>
+  </nav>
+</header>
+
+<section class="checkout-section">
+
+  <div class="checkout-card">
+
+    <p class="section-label">WELCOME BACK</p>
+
+    <h1>LOGIN</h1>
+
+    <form onsubmit="loginUser(event)">
+
+      <label>Email Address</label>
+      <input
+        type="email"
+        id="login-email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <label>Password</label>
+      <input
+        type="password"
+        id="login-password"
+        placeholder="Enter your password"
+        required
+      >
+
+      <button type="submit" class="primary-btn">
+        Login
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<script>
+function loginUser(event) {
+  event.preventDefault();
+
+  const email = document.getElementById("login-email").value;
+  localStorage.setItem("loggedInUser", email);
+
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
