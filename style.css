@@ -345,3 +345,29 @@ nav a {
   margin-top: 25px;
   padding: 15px;
   font-size: 16px;
+/* Login form */
+.checkout-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkout-card form label {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.checkout-card form input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #2a3542;
+  border-radius: 8px;
+  background: #111923;
+  color: white;
+  font-size: 16px;
+}
+
+.checkout-card form .primary-btn {
+  margin-top: 12px;
+  width: 100%;
+}
