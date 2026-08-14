@@ -370,4 +370,24 @@ nav a {
 .checkout-card form .primary-btn {
   margin-top: 12px;
   width: 100%;
+}.checkout-card form {
+  display: block;
+}
+
+.checkout-card form label {
+  display: block;
+  margin: 18px 0 8px;
+}
+
+.checkout-card form input {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.checkout-card form .primary-btn {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
 }
