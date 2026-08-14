@@ -390,4 +390,63 @@ nav a {
   display: block;
   width: 100%;
   margin-top: 20px;
+}/* Dashboard */
+.dashboard-section {
+  padding: 70px 8%;
+}
+
+.dashboard-header {
+  margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.dashboard-header p {
+  color: #9aa4b2;
+  font-size: 18px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: #0f1823;
+  border: 1px solid #263241;
+  border-radius: 14px;
+  padding: 28px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard-card span {
+  color: #9aa4b2;
+  font-size: 15px;
+}
+
+.dashboard-card strong {
+  font-size: 30px;
+  margin-top: 12px;
+}
+
+.dashboard-card small {
+  color: #9aa4b2;
+  margin-top: 8px;
+}
+
+.status-active {
+  color: #c7ff21;
+}
+
+@media (max-width: 800px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
 }
