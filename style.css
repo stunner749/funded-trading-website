@@ -450,3 +450,51 @@ nav a {
     grid-template-columns: 1fr;
   }
 }
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 7%;
+}
+
+.dashboard h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.dashboard p {
+  color: #b8bec9;
+  margin-bottom: 35px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: #0d1620;
+  border: 1px solid #1b2430;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.stat-card h3 {
+  color: #b8bec9;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.stat-card h2 {
+  font-size: 28px;
+}
+
+@media (max-width: 800px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard h1 {
+    font-size: 36px;
+  }
+}
