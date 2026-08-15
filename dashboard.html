@@ -118,7 +118,40 @@
 
   </div>
 
-</section>
+</section><script src="script.js"></script>
+
+<script>
+const selectedAccount = JSON.parse(localStorage.getItem("selectedAccount"));
+
+if (selectedAccount) {
+  const cards = document.querySelectorAll(".dashboard-card");
+
+  cards[0].querySelector("strong").textContent = selectedAccount.size;
+  cards[1].querySelector("strong").textContent = selectedAccount.size;
+
+  const sizeNumber = Number(selectedAccount.size.replace(/[$,]/g, ""));
+  const targetPercent = Number(selectedAccount.target.replace("%", ""));
+  const lossPercent = Number(selectedAccount.loss.replace("%", ""));
+
+  const targetAmount = sizeNumber * (targetPercent / 100);
+  const lossAmount = sizeNumber * (lossPercent / 100);
+
+  cards[2].querySelector("strong").textContent =
+    "$" + targetAmount.toLocaleString();
+
+  cards[2].querySelector("small").textContent =
+    selectedAccount.target + " target";
+
+  cards[3].querySelector("strong").textContent =
+    "$" + lossAmount.toLocaleString();
+
+  cards[3].querySelector("small").textContent =
+    selectedAccount.loss + " limit";
+
+  cards[4].querySelector("strong").textContent =
+    "0 / " + selectedAccount.days.replace(" Days", "");
+}
+</script>
 
 </body>
 </html>
