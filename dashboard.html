@@ -153,9 +153,11 @@ if (selectedAccount) {
 }
 
 const fullName = localStorage.getItem("fullName");
-if (fullName) {
-  document.getElementById("userName").textContent = fullName;
-}
+const loggedInUser = localStorage.getItem("loggedInUser");
+
+const displayName = fullName || (loggedInUser ? loggedInUser.split("@")[0] : "TRADER");
+
+document.getElementById("userName").textContent = displayName;
 </script>
 
 </body>
