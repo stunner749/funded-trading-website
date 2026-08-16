@@ -78,7 +78,7 @@
 
   <div class="dashboard-header">
     <p class="section-label">TRADER DASHBOARD</p>
-    <h1>YOUR CHALLENGE</h1>
+    <h1>WELCOME, <span id="userName">TRADER</span></h1>
     <p>Track your funded trading evaluation progress.</p>
   </div>
 
@@ -150,6 +150,11 @@ if (selectedAccount) {
 
   cards[4].querySelector("strong").textContent =
     "0 / " + selectedAccount.days.replace(" Days", "");
+}
+
+const fullName = localStorage.getItem("fullName");
+if (fullName) {
+  document.getElementById("userName").textContent = fullName;
 }
 </script>
 
