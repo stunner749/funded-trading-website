@@ -31,19 +31,18 @@
         Create your account to continue with your funded trading challenge.
       </p>
 
-      <form>
+     <form id="signupForm">
 
         <label>Full Name</label>
-        <input type="text" placeholder="Enter your full name">
+       <input type="text" id="fullName" placeholder="Enter your full name" required>
 
         <label>Email Address</label>
-        <input type="email" placeholder="Enter your email">
+        <input type="email" id="email" placeholder="Enter your email" required>
 
         <label>Password</label>
-        <input type="password" placeholder="Create a password">
-
+        <input type="password" id="password" placeholder="Create a password" required>
         <label>Account Size</label>
-        <select>
+       <select id="accountSize" required>
           <option>$5,000</option>
           <option>$10,000</option>
           <option>$25,000</option>
@@ -51,14 +50,25 @@
           <option>$100,000</option>
         </select>
 
-</form>
 
-<a href="checkout.html" class="primary-btn">
+<button type="submit" class="primary-btn">
   Continue
-</a>
+</button>
+</form>
     </div>
 
   </section>
 
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const accountSize = document.getElementById("accountSize").value;
+
+  localStorage.setItem("selectedAccount", accountSize);
+
+  window.location.href = "checkout.html";
+});
+</script>
 </body>
 </html>
