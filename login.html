@@ -60,7 +60,11 @@ function loginUser(event) {
 
   const email = document.getElementById("login-email").value;
   localStorage.setItem("loggedInUser", email);
+const savedName = localStorage.getItem("fullName");
 
+if (!savedName) {
+  localStorage.setItem("fullName", email.split("@")[0]);
+}
  window.location.href = "dashboard.html";
 }
 </script>
