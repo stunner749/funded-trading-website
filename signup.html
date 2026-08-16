@@ -62,7 +62,11 @@
 <script>
 document.getElementById("signupForm").addEventListener("submit", function(event) {
   event.preventDefault();
+const fullName = document.getElementById("fullName").value;
+const email = document.getElementById("email").value;
 
+localStorage.setItem("fullName", fullName);
+localStorage.setItem("email", email);
   const accountSize = document.getElementById("accountSize").value;
 
   localStorage.setItem("selectedAccount", accountSize);
