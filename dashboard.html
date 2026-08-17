@@ -171,8 +171,26 @@ if (selectedAccount) {
     selectedAccount.loss + " limit";
 
   cards[4].querySelector("strong").textContent =
-    "0 / " + selectedAccount.days.replace(" Days", "");
-}
+    "0 / " + selectedAccount.days.replace(" Days", "");}
+const accountSize = Number(
+  cards[0].querySelector("strong").textContent.replace(/[$,]/g, "")
+);
+
+const currentBalance = Number(
+  cards[1].querySelector("strong").textContent.replace(/[$,]/g, "")
+);
+
+const profitTarget = Number(
+  cards[2].querySelector("strong").textContent.replace(/[$,]/g, "")
+);
+
+const profitProgress = Math.max(
+  0,
+  Math.min(100, ((currentBalance - accountSize) / profitTarget) * 100)
+);
+
+document.querySelector(".progress-fill").style.width =
+  profitProgress + "%";
 
 const fullName = localStorage.getItem("fullName");
 const loggedInUser = localStorage.getItem("loggedInUser");
