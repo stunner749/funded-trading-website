@@ -57,6 +57,24 @@
     grid-template-columns: 1fr;
   }
 }
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #1a2633;
+  border-radius: 999px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #e9ff2f;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+</style>
 </style>
 </head>
 
@@ -94,11 +112,15 @@
       <strong>$25,000</strong>
     </div>
 
-    <div class="dashboard-card">
-      <span>Profit Target</span>
-      <strong>$2,000</strong>
-      <small>8% target</small>
-    </div>
+ <div class="dashboard-card">
+  <span>Profit Target</span>
+  <strong>$2,000</strong>
+  <small>8% target</small>
+
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 0%;"></div>
+  </div>
+</div>
 
     <div class="dashboard-card">
       <span>Maximum Loss</span>
