@@ -149,7 +149,8 @@ if (selectedAccount) {
   const cards = document.querySelectorAll(".dashboard-card");
 
   cards[0].querySelector("strong").textContent = selectedAccount.size;
- cards[1].querySelector("strong").textContent = "$25,500";
+ const savedBalance = localStorage.getItem("currentBalance");
+cards[1].querySelector("strong").textContent = savedBalance ? "$" + Number(savedBalance).toLocaleString() : selectedAccount.size;
 
   const sizeNumber = Number(selectedAccount.size.replace(/[$,]/g, ""));
   const targetPercent = Number(selectedAccount.target.replace("%", ""));
