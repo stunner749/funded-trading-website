@@ -184,7 +184,7 @@
 
     <div class="dashboard-card">
       <span>Challenge Status</span>
-      <strong class="status-active">Active</strong>
+      <strong class="status-active" id="challengeStatus">Active</strong>
     </div>
 
   </div>
@@ -273,6 +273,7 @@ const addTradingDayBtn = document.getElementById("addTradingDayBtn");
 let tradingDays = Number(localStorage.getItem("tradingDays")) || 0;
 
 tradingDays = Math.min(tradingDays, 5);
+tradingDaysDisplay.textContent = tradingDays + " / 5";
 tradingDaysDisplay.textContent = tradingDays + " / 5";
 if (tradingDays >= 5) {
   addTradingDayBtn.disabled = true;
