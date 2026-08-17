@@ -172,10 +172,10 @@ if (selectedAccount) {
 
   cards[4].querySelector("strong").textContent =
     "0 / " + selectedAccount.days.replace(" Days", "");}
-const accountSize = Number(
-  cards[0].querySelector("strong").textContent.replace(/[$,]/g, "")
-);
+const cards = document.querySelectorAll(".dashboard-card");
 
+const accountSize = Number(
+cards[0].querySelector("strong").textContent.replace(/[$,]/g, ""));
 const currentBalance = Number(
   cards[1].querySelector("strong").textContent.replace(/[$,]/g, "")
 );
