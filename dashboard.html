@@ -73,8 +73,33 @@
   border-radius: 999px;
   transition: width 0.4s ease;
 }
+#balanceInput {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #243344;
+  background: #0b141e;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-</style>
+#balanceInput::placeholder {
+  color: #7f8b98;
+}
+
+#updateBalanceBtn {
+  margin-top: 12px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #e9ff2f;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -107,10 +132,20 @@
       <strong>$25,000</strong>
     </div>
 
-    <div class="dashboard-card">
-      <span>Current Balance</span>
-     <strong>$25,500</strong>
-    </div>
+   <div class="dashboard-card">
+  <span>Current Balance</span>
+  <strong id="currentBalanceDisplay">$25,000</strong>
+
+  <input
+    type="number"
+    id="balanceInput"
+    placeholder="Enter new balance"
+  >
+
+  <button type="button" id="updateBalanceBtn">
+    Update Balance
+  </button>
+</div>
 
  <div class="dashboard-card">
   <span>Profit Target</span>
@@ -192,7 +227,32 @@ const profitProgress = Math.max(
 
 document.querySelector(".progress-fill").style.width =
   profitProgress + "%";
+const balanceInput = document.getElementById("balanceInput");
+const updateBalanceBtn = document.getElementById("updateBalanceBtn");
 
+updateBalanceBtn.addEventListener("click", function () {
+  const newBalance = Number(balanceInput.value);
+
+  if (!newBalance || newBalance <= 0) {
+    alert("Please enter a valid balance.");
+    return;
+  }
+
+  localStorage.setItem("currentBalance", newBalance);
+
+  cards[1].querySelector("strong").textContent =
+    "$" + newBalance.toLocaleString();
+
+  const newProgress = Math.max(
+    0,
+    Math.min(100, ((newBalance - accountSize) / profitTarget) * 100)
+  );
+
+  document.querySelector(".progress-fill").style.width =
+    newProgress + "%";
+
+  balanceInput.value = "";
+});
 const fullName = localStorage.getItem("fullName");
 const loggedInUser = localStorage.getItem("loggedInUser");
 
