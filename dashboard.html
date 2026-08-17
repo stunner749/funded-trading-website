@@ -99,7 +99,17 @@
   font-weight: 700;
   cursor: pointer;
 }
-
+#addTradingDayBtn {
+  margin-top: 14px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #e9ff2f;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+}
 </style>
 </head>
 
@@ -163,10 +173,14 @@
       <small>10% limit</small>
     </div>
 
-    <div class="dashboard-card">
-      <span>Trading Days</span>
-      <strong>0 / 5</strong>
-    </div>
+  <div class="dashboard-card">
+  <span>Trading Days</span>
+  <strong id="tradingDaysDisplay">0 / 5</strong>
+
+  <button type="button" id="addTradingDayBtn">
+    Add Trading Day
+  </button>
+</div>
 
     <div class="dashboard-card">
       <span>Challenge Status</span>
@@ -253,9 +267,23 @@ updateBalanceBtn.addEventListener("click", function () {
 
   balanceInput.value = "";
 });
+
+const tradingDaysDisplay = document.getElementById("tradingDaysDisplay");
+const addTradingDayBtn = document.getElementById("addTradingDayBtn");
+let tradingDays = Number(localStorage.getItem("tradingDays")) || 0;
+
+tradingDays = Math.min(tradingDays, 5);
+tradingDaysDisplay.textContent = tradingDays + " / 5";
+
+addTradingDayBtn.addEventListener("click", function () {
+  if (tradingDays < 5) {
+    tradingDays++;
+    localStorage.setItem("tradingDays", tradingDays);
+    tradingDaysDisplay.textContent = tradingDays + " / 5";
+  }
+});
 const fullName = localStorage.getItem("fullName");
 const loggedInUser = localStorage.getItem("loggedInUser");
-
 const displayName = fullName || (loggedInUser ? loggedInUser.split("@")[0] : "TRADER");
 
 document.getElementById("userName").textContent = displayName;
