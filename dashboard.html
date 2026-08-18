@@ -273,7 +273,7 @@ const addTradingDayBtn = document.getElementById("addTradingDayBtn");
 let tradingDays = Number(localStorage.getItem("tradingDays")) || 0;
 
 tradingDays = Math.min(tradingDays, 5);
-tradingDaysDisplay.textContent = tradingDays + " / 5";
+
 tradingDaysDisplay.textContent = tradingDays + " / 5";
 if (tradingDays >= 5) {
   addTradingDayBtn.disabled = true;
@@ -284,10 +284,11 @@ addTradingDayBtn.addEventListener("click", function () {
     tradingDays++;
     localStorage.setItem("tradingDays", tradingDays);
     tradingDaysDisplay.textContent = tradingDays + " / 5";
-  }if (tradingDays >= 5) {
+  if (tradingDays >= 5) {
   addTradingDayBtn.disabled = true;
   addTradingDayBtn.textContent = "Trading Days Complete";
 }
+}    
 });
 const fullName = localStorage.getItem("fullName");
 const loggedInUser = localStorage.getItem("loggedInUser");
