@@ -233,12 +233,25 @@ const currentBalance = Number(
 const profitTarget = Number(
   cards[2].querySelector("strong").textContent.replace(/[$,]/g, "")
 );
-
-const profitProgress = Math.max(
-  0,
-  Math.min(100, ((currentBalance - accountSize) / profitTarget) * 100)
+const maximumLoss = Number(
+  cards[3].querySelector("strong").textContent.replace(/[$,]/g, "")
 );
 
+const challengeStatus = document.getElementById("challengeStatus");
+function updateChallengeStatus(balance) {
+  if (balance <= accountSize - maximumLoss) {
+    challengeStatus.textContent = "Failed";
+  } else if (balance >= accountSize + profitTarget) {
+    challengeStatus.textContent = "Passed";
+  } else {
+    challengeStatus.textContent = "Active";
+  }
+}
+  updateChallengeStatus(currentBalance);
+const profitProgress = Math.max(
+  0,  
+Math.min(100, ((currentBalance - accountSize) / profitTarget) * 100)
+);
 document.querySelector(".progress-fill").style.width =
   profitProgress + "%";
 const balanceInput = document.getElementById("balanceInput");
@@ -256,7 +269,7 @@ updateBalanceBtn.addEventListener("click", function () {
 
   cards[1].querySelector("strong").textContent =
     "$" + newBalance.toLocaleString();
-
+updateChallengeStatus(newBalance);
   const newProgress = Math.max(
     0,
     Math.min(100, ((newBalance - accountSize) / profitTarget) * 100)
