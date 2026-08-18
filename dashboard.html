@@ -267,8 +267,8 @@ updateBalanceBtn.addEventListener("click", function () {
 
   localStorage.setItem("currentBalance", newBalance);
 
-  cards[1].querySelector("strong").textContent =
-    "$" + newBalance.toLocaleString();
+ document.getElementById("currentBalanceDisplay").textContent =
+  "$" + newBalance.toLocaleString();
 updateChallengeStatus(newBalance);
   const newProgress = Math.max(
     0,
