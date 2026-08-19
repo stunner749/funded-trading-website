@@ -56,6 +56,17 @@
     document.getElementById("payment-button").textContent =
       "Pay " + selectedAccount.fee;
   }
-</script>
+
+ document.getElementById("payment-button").addEventListener("click", function () {
+  if (selectedAccount) {
+    const startingBalance = Number(
+      selectedAccount.size.replace(/[$,]/g, "")
+    );
+
+    localStorage.setItem("currentBalance", startingBalance);
+    localStorage.setItem("tradingDays", "0");
+  }
+});     
+</script>  
 </body>
 </html>
