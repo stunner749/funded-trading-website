@@ -60,12 +60,22 @@
 
   </section>
 
-<script>  const selectedAccount = JSON.parse(localStorage.getItem("selectedAccount"));
+<script>
+const selectedAccount = JSON.parse(
+  localStorage.getItem("selectedAccount")
+);
 
-  if (selectedAccount) {
-    document.getElementById("checkout-size").textContent = selectedAccount.size;
-    document.getElementById("checkout-price").textContent = selectedAccount.fee;
-  }
+if (selectedAccount) {
+  const rows = document.querySelectorAll(".checkout-row strong");
+
+  rows[0].textContent = selectedAccount.size;
+  rows[1].textContent = selectedAccount.target;
+  rows[2].textContent = selectedAccount.loss;
+  rows[3].textContent = selectedAccount.days;
+
+  document.getElementById("checkout-price").textContent =
+    selectedAccount.fee;
+}
 </script>
 </body>
 </html>
